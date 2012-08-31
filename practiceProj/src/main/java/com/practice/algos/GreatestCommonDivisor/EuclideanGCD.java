@@ -1,8 +1,3 @@
-/**
- * Copyright 2009 - Nitman Software Pvt. Ltd. All Rights Reserved. 
- * This software is the proprietary information of Nitman Software Pvt. Ltd. 
- * Use is subject to license terms.
- */
 package com.practice.algos.GreatestCommonDivisor;
 
 /**

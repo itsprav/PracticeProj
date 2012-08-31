@@ -1,22 +1,10 @@
 package com.practice.algos.dynamicProgramming.coinchange;
 
-
 /**
- * 
- * @author Vijay Kumar : email kumar.vijay@gmail.com
- * Distributed under Apache 2.0 License
- * 
- * Programatically solves the Coin Change problem. 
- * The program computes the following
- * 1. All possible solutions 
- * 2. The optimal solution.
- * 
- * References:
- * http://condor.depaul.edu/~rjohnson/algorithm/coins.pdf
- * http://www.algorithmist.com/index.php/Coin_Change
- * 
+ * @author PraveenK
+ * @since  Aug 31, 2012
  */
-public class CoinChangeAlgo {
+public class CoinChangeAlgorithm {
 
 	/**
 	 * Find all possible solutions recursively
@@ -28,7 +16,7 @@ public class CoinChangeAlgo {
 	private void findAllCombinationsRecursive(String tsoln,
 			int startIx,
 			int remainingTarget,
-			CoinChangeAnswer answer) {
+			CoinChangeSolutionBean answer) {
 		for(int i=startIx; i<answer.denoms.length ;i++) {
 			int temp = remainingTarget - answer.denoms[i];
 			String tempSoln = tsoln + "" + answer.denoms[i]+ ",";
@@ -53,8 +41,8 @@ public class CoinChangeAlgo {
 	 * @param denoms - The denominations which must be in an order and must not contain duplicates
 	 * @return The Answer object which contains the list of all possible solutions.
 	 */
-	public CoinChangeAnswer findAllPossibleCombinations(int target, int[] denoms) {
-		CoinChangeAnswer soln = new CoinChangeAnswer(target,denoms);
+	public CoinChangeSolutionBean findAllPossibleCombinations(int target, int[] denoms) {
+		CoinChangeSolutionBean soln = new CoinChangeSolutionBean(target,denoms);
 		String tempSoln = new String();
 		findAllCombinationsRecursive(tempSoln, 0, target, soln);
 		return soln;
@@ -66,8 +54,8 @@ public class CoinChangeAlgo {
 	 * @param denoms
 	 * @return
 	 */
-	public CoinChangeAnswer findOptimalChange(int target, int[] denoms) {
-		CoinChangeAnswer soln = new CoinChangeAnswer(target,denoms);
+	public CoinChangeSolutionBean findOptimalChange(int target, int[] denoms) {
+		CoinChangeSolutionBean soln = new CoinChangeSolutionBean(target,denoms);
 		StringBuilder sb = new StringBuilder();
 		
 		// initialize the solution structure
@@ -105,10 +93,10 @@ public class CoinChangeAlgo {
 	}
 	
 	public static void main(String[] args) {
-		CoinChangeAlgo ch = new CoinChangeAlgo();
+		CoinChangeAlgorithm ch = new CoinChangeAlgorithm();
 		
 		// target is 15 and change is 1,6,7
-		CoinChangeAnswer soln = ch.findAllPossibleCombinations(15, new int[] {1,6,7});
+		CoinChangeSolutionBean soln = ch.findAllPossibleCombinations(15, new int[] {1,6,7});
 		soln.printAllPossibleCombos();
 		
 

@@ -2,15 +2,14 @@ package com.practice.algos.dynamicProgramming.coinchange;
 
 import java.util.ArrayList;
 
-/**
- * @author Vijay Kumar : email kumar.vijay@gmail.com
- * Distributed under Apache 2.0 License
- *
- * The following class contains the final result after running the coin change
- * function.
- */
 
-public class CoinChangeAnswer {
+
+/**
+ * @author PraveenK
+ * @since  Aug 31, 2012
+ */
+public class CoinChangeSolutionBean {
+	
 	/**
 	 * The optimal solution for i,j where i is the denomination
 	 * and j is the current target value.
@@ -44,7 +43,7 @@ public class CoinChangeAnswer {
 	 */
 	public int[] denoms;
 	
-	public CoinChangeAnswer(int target,int[] denoms) {
+	public CoinChangeSolutionBean(int target,int[] denoms) {
 		this.target = target;
 		this.denoms = denoms;
 		optimalChange = new String[denoms.length][target+1];
