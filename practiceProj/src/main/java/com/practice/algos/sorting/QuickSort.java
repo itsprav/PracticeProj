@@ -1,4 +1,4 @@
-package com.practice.datasructures.sorting;
+package com.practice.algos.sorting;
 /**
  * @author PraveenK
  * @since  Jun 25, 2012
